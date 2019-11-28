@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <img src="src/logo.svg" style="height: 40vmin" id="logo" />
+    <script>
+      var val = 4
+      Array.from({length: 200000}, (v, i) => i).map(val => {
+        const elt = document.createElement('div');
+        elt.appendChild(document.createTextNode(`${val}`));
+        document.body.appendChild(elt);
+      })
+      const logo = document.getElementById('logo')
+      function rotate() {
+        val+=4;
+        logo.style.transform = `rotate(${val}deg)`;
+        window.requestAnimationFrame(rotate)
+      }
+      window.requestAnimationFrame(rotate)
+    </script>
+  </body>
+</html>
